@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components and props </title>
+</head>
+<body>
+    <div class="js-container"></div>
+
+		<script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+        <script type="text/babel">
+			
+            function App(){
+                return(
+                    <>
+                       <ProductDetails product="Tennis ball" price="6.00" discount="2.00"/>
+                       <ProductDetails product="Plain T-shirt" price="7.99"/>
+                       <ProductDetails product="Cotton socks" price="10.90" discount="1.99"/>
+                    </>
+                );
+
+            }
+
+            function ProductDetails({ product , price , discount}){
+                
+                // if(discount){
+                //     return(
+                //         <div>
+                //             {product}
+                //             <del><p>Price : ${price}</p></del>
+                //             {discount !== undefined && <p>Discount price: ${discount}</p>}
+                //             <button>Add to cart</button>
+                //         </div>
+                //     );
+                    
+                // }
+                // return (
+                //     <div>
+                //         {product}
+                //         <p>Price : ${price}</p>
+                //         {discount !== undefined && <p>Discount price: ${discount}</p>}
+                //         <button>Add to cart</button>
+                //     </div>
+                // );
+
+                // using ternary operator
+                const result = discount?<div>
+                                {product}
+                                <del><p>Price : ${price}</p></del>
+                                {discount !== undefined && <p>Discount price: ${discount}</p>}
+                                <button>Add to cart</button>
+                            </div>:<div>
+                                {product}
+                                <p>Price : ${price}</p>
+                                {discount !== undefined && <p>Discount price: ${discount}</p>}
+                                <button>Add to cart</button>
+                            </div>
+                        
+                return result;
+                }
+
+
+            
+            const container = document.querySelector('.js-container');
+            const root = ReactDOM.createRoot(container);
+            root.render(<App/>)
+        </script>
+
+
+    
+</body>
+</html>
