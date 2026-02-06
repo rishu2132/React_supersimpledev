@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="js-container"></div>
-
+    
 		<script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
         <script src="https://unpkg.com/supersimpledev/react.js"></script>
         <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
@@ -18,15 +18,15 @@
             function App(){
                 return(
                     <>
-                       <ProductDetails product="Tennis ball" price="6.00" discount="2.00"/>
-                       <ProductDetails product="Plain T-shirt" price="7.99"/>
-                       <ProductDetails product="Cotton socks" price="10.90" discount="1.99"/>
+                       <ProductDetails product="Tennis ball" price="6.00" discount="2.00" imageSrc="./images/tennis-balls.png"/>
+                       <ProductDetails product="Plain T-shirt" price="7.99" imageSrc="./images/plain-t-shirt.png"/>
+                       <ProductDetails product="Cotton socks" price="10.90" discount="1.99" imageSrc="./images/cotton-socks.png"/>
                     </>
                 );
 
             }
 
-            function ProductDetails({ product , price , discount}){
+            function ProductDetails({ product , price , discount , imageSrc}){
                 
                 // if(discount){
                 //     return(
@@ -50,11 +50,13 @@
 
                 // using ternary operator
                 const result = discount?<div>
+                                <img src={imageSrc} width="50" />
                                 {product}
                                 <del><p>Price : ${price}</p></del>
                                 {discount !== undefined && <p>Discount price: ${discount}</p>}
                                 <button>Add to cart</button>
                             </div>:<div>
+                                <img src={imageSrc} width="50"/>
                                 {product}
                                 <p>Price : ${price}</p>
                                 {discount !== undefined && <p>Discount price: ${discount}</p>}
