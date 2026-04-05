@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>]
+    <style>
+      body {
+        font-family: Arial;
+        margin: none;
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin-bottom: 15px;
+
+      }
+
+      .input-container input {
+        margin-bottom: 8px;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 12px;
+        border-width: 1px;
+      }
+
+      .button-container button {
+        background-color: rgb(0,123,255);
+        color: white;
+        font-size: 15px;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+   
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+      
+      function InputHtml(){
+        return (
+          <div className="input-container">
+            <input placeholder="Email" type="Email" size="30"/>
+            <input placeholder="password" type="password" size="30"/>
+          </div>
+        )
+      }
+
+      function ButtonHtml(){
+        return(
+          <div className="button-container">
+            <button>Login</button>
+            <button>Sign up</button>
+          </div>
+        )
+      }
+
+      function App(){
+
+
+        return (
+         <>
+          <h1>Hello,welcome to my website </h1>
+          <InputHtml/>
+          <ButtonHtml/>
+         </>
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App/>);
+    </script>
+</body>
+</html>
