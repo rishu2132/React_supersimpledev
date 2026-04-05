@@ -13,7 +13,7 @@
       .input-container {
         display: flex;
         flex-direction: column;
-        width: 300px;
+        width: 500px;
         margin-bottom: 15px;
 
       }
@@ -22,6 +22,7 @@
         margin-bottom: 8px;
         font-size: 15px;
         padding: 10px;
+        width: 300px;
         border-radius: 12px;
         border-width: 1px;
       }
@@ -35,6 +36,26 @@
         padding: 10px 15px;
         margin-right: 10px;
         cursor: pointer;
+      }
+
+      .input-container button {
+        
+      }
+
+      .input-button{
+        width: 500px;
+
+      }
+
+      .input-button button {
+        margin-left: 10px;
+        font-size: 15px;
+        border-width: 1px;
+        border-radius: 10px;
+        padding: 10px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+
       }
     </style>
 </head>
@@ -52,10 +73,22 @@
 
       
       function InputHtml(){
+        const [showPassword , setShowPassword] = React.useState(false);
+
+
+        function hideButton(){
+          setShowPassword(!showPassword);
+        }
+
         return (
           <div className="input-container">
             <input placeholder="Email" type="Email" size="30"/>
-            <input placeholder="password" type="password" size="30"/>
+          
+            <div className="input-button">
+              <input placeholder="password" type={showPassword? 'text': 'password'} size="30"/>
+              <button onClick={hideButton}>{showPassword? 'Hide' : 'Show'}</button>  
+            </div>
+            
           </div>
         )
       }
